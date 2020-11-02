@@ -1,0 +1,385 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     14411,        375]
+NotebookOptionsPosition[     14080,        358]
+NotebookOutlinePosition[     14435,        374]
+CellTagsIndexPosition[     14392,        371]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"g", "[", 
+    RowBox[{"q", ",", "n2"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"q", ",", "1", ",", "\"\<                      plot\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<Lennard-Jones potentials\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<second virial coefficients\>\""}]}], 
+      "}"}], ",", "Setter", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<      gas\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n2", ",", "0", ",", "\"\<Ar\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "2"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "4", ",", "6", ",", "8"}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"c", "[", "2", "]"}], "=", "\"\<Ar\>\""}], ";", "\n", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "2", "]"}], "=", "119.8"}], ";", "\n", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "2", "]"}], "=", "3.405"}], ";", "\n", 
+      RowBox[{
+       RowBox[{"v", "[", 
+        RowBox[{"n_", ",", "r_"}], "]"}], ":=", 
+       RowBox[{"4", 
+        RowBox[{"\[Epsilon]", "[", "n", "]"}], 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"\[Sigma]", "[", "n", "]"}], "r"], ")"}], "12"], "-", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"\[Sigma]", "[", "n", "]"}], "r"], ")"}], "6"]}], 
+         ")"}]}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"lj", "[", "n_", "]"}], ":=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"v", "[", 
+            RowBox[{"n", ",", "r"}], "]"}], ",", 
+           RowBox[{"c", "[", "n", "]"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"r", ",", "0", ",", "12"}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "250"}], ",", "100"}], "}"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Thick", ",", 
+            RowBox[{"Hue", "[", 
+             RowBox[{"n", "/", "14"}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", ".8"}], ",", 
+         RowBox[{"Exclusions", "\[Rule]", "None"}]}], "]"}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"g", "[", 
+        RowBox[{"1", ",", "n2_"}], "]"}], ":=", 
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"lj", "[", "n", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", 
+             RowBox[{"{", "n2", "}"}]}], "}"}]}], "]"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<r\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\< (\[CapitalARing])\>\""}], "}"}], "]"}], ",", "18"}], 
+             "]"}], ",", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<v(r)/k\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\< (K)\>\""}], "}"}], "]"}], ",", "18"}], "]"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Lennard-Jones potentials\>\"", ",", "18"}], "]"}]}], 
+         ",", " ", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"500", ",", "400"}], "}"}]}]}], "]"}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"B", "[", 
+        RowBox[{"n_", ",", "T_"}], "]"}], ":=", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"2", "\[Pi]"}], "3"]}], ".6022", 
+        SuperscriptBox[
+         RowBox[{"\[Sigma]", "[", "n", "]"}], "3"], 
+        RowBox[{
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{"k", "=", "0"}], "8"], 
+         RowBox[{
+          FractionBox[
+           SuperscriptBox["2", 
+            RowBox[{"k", "+", 
+             RowBox[{"1", "/", "2"}]}]], 
+           RowBox[{"4", " ", 
+            RowBox[{"k", "!"}]}]], 
+          RowBox[{"Gamma", "[", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"2", "k"}], "-", "1"}], "4"], "]"}], 
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"\[Epsilon]", "[", "n", "]"}], "T"], ")"}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", "k"}], "+", "1"}], ")"}], "/", "4"}]]}]}]}]}], ";", 
+      RowBox[{"(*", " ", 
+       RowBox[{"L", "/", "mol"}], " ", "*)"}], "\n", 
+      RowBox[{
+       RowBox[{"v2", "[", "n_", "]"}], ":=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"B", "[", 
+            RowBox[{"n", ",", "T"}], "]"}], ",", 
+           RowBox[{"c", "[", "n", "]"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"T", ",", "0", ",", "1000"}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "20"}], ",", "20"}], "}"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Thick", ",", 
+            RowBox[{"Hue", "[", 
+             RowBox[{"n", "/", "14"}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", ".8"}], ",", 
+         RowBox[{"Exclusions", "\[Rule]", "None"}]}], "]"}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"g", "[", 
+        RowBox[{"2", ",", "n2_"}], "]"}], ":=", 
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"v2", "[", "n", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", 
+             RowBox[{"{", "n2", "}"}]}], "}"}]}], "]"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<T\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\< (K)\>\""}], "}"}], "]"}], ",", "18"}], "]"}], ",", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<B(T)\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\< (\>\"", ",", " ", 
+                 RowBox[{"Superscript", "[", 
+                  RowBox[{"\"\<cm\>\"", ",", "3"}], "]"}], ",", 
+                 "\"\</mol)\>\""}], "}"}], "]"}], ",", "18"}], "]"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<second virial coefficients\>\"", ",", "18"}], "]"}]}],
+          ",", " ", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"500", ",", "400"}], "}"}]}]}], "]"}]}]}], 
+     "\[IndentingNewLine]", ")"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.565156865763817*^9, 3.565156889964468*^9}, {
+  3.565156921628772*^9, 3.565156961908514*^9}, {3.5651570052337637`*^9, 
+  3.5651570223599863`*^9}, {3.565157062991432*^9, 3.565157083557047*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n2$$ = 2, $CellContext`q$$ = 2, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`q$$], 1, "                      plot"}, {
+      1 -> "Lennard-Jones potentials", 2 -> "second virial coefficients"}}, {
+      Hold[
+       Style["      gas", Bold]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`n2$$], 0, "Ar"}, {0, 2}}}, Typeset`size$$ = {
+    500., {198., 202.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`q$2854535$$ = 
+    False, $CellContext`n2$2854536$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`n2$$ = 0, $CellContext`q$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`q$$, $CellContext`q$2854535$$, False], 
+        Hold[$CellContext`n2$$, $CellContext`n2$2854536$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`g[$CellContext`q$$, $CellContext`n2$$], 
+      "Specifications" :> {{{$CellContext`q$$, 1, 
+          "                      plot"}, {
+         1 -> "Lennard-Jones potentials", 2 -> "second virial coefficients"}, 
+         ControlType -> Setter, ControlPlacement -> Top}, 
+        Style[
+        "      gas", Bold], {{$CellContext`n2$$, 0, "Ar"}, {0, 2}, 
+         ControlType -> Checkbox}}, 
+      "Options" :> {
+       ControlPlacement -> Left, TrackedSymbols -> True, 
+        AutorunSequencing -> {2, 4, 6, 8}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{580., {238., 244.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`c[2] = "Ar"; $CellContext`\[Epsilon][2] = 
+       119.8; $CellContext`\[Sigma][2] = 3.405; $CellContext`v[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`r, 
+          Blank[]]] := 
+       4 $CellContext`\[Epsilon][$CellContext`n] \
+(($CellContext`\[Sigma][$CellContext`n]/$CellContext`r)^12 - ($CellContext`\
+\[Sigma][$CellContext`n]/$CellContext`r)^6); $CellContext`lj[
+         Pattern[$CellContext`n, 
+          Blank[]]] := Plot[
+         Tooltip[
+          $CellContext`v[$CellContext`n, $CellContext`r], 
+          $CellContext`c[$CellContext`n]], {$CellContext`r, 0, 12}, 
+         PlotRange -> {-250, 100}, PlotStyle -> {Thick, 
+           Hue[$CellContext`n/14]}, GridLines -> Automatic, AspectRatio -> 
+         0.8, Exclusions -> None]; $CellContext`g[1, 
+         Pattern[$CellContext`n2, 
+          Blank[]]] := Show[
+         Table[
+          $CellContext`lj[$CellContext`n], {$CellContext`n, \
+{$CellContext`n2}}], AxesLabel -> {
+           Style[
+            Row[{
+              Style["r", Italic], " (\[CapitalARing])"}], 18], 
+           Style[
+            Row[{
+              Style["v(r)/k", Italic], " (K)"}], 18]}, PlotLabel -> 
+         Style["Lennard-Jones potentials", 18], 
+         ImageSize -> {500, 400}]; $CellContext`B[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`T, 
+          Blank[]]] := (-(2 Pi/3)) 
+        0.6022 $CellContext`\[Sigma][$CellContext`n]^3 
+        Sum[(2^($CellContext`k + 1/2)/(4 Factorial[$CellContext`k])) 
+          Gamma[(2 $CellContext`k - 1)/
+            4] ($CellContext`\[Epsilon][$CellContext`n]/$CellContext`T)^((
+             2 $CellContext`k + 1)/4), {$CellContext`k, 0, 
+           8}]; $CellContext`v2[
+         Pattern[$CellContext`n, 
+          Blank[]]] := Plot[
+         Tooltip[
+          $CellContext`B[$CellContext`n, $CellContext`T], 
+          $CellContext`c[$CellContext`n]], {$CellContext`T, 0, 1000}, 
+         PlotRange -> {-20, 20}, PlotStyle -> {Thick, 
+           Hue[$CellContext`n/14]}, GridLines -> Automatic, AspectRatio -> 
+         0.8, Exclusions -> None]; $CellContext`g[2, 
+         Pattern[$CellContext`n2, 
+          Blank[]]] := Show[
+         Table[
+          $CellContext`v2[$CellContext`n], {$CellContext`n, \
+{$CellContext`n2}}], AxesLabel -> {
+           Style[
+            Row[{
+              Style["T", Italic], " (K)"}], 18], 
+           Style[
+            Row[{
+              Style["B(T)", Italic], " (", 
+              Superscript["cm", 3], "/mol)"}], 18]}, PlotLabel -> 
+         Style["second virial coefficients", 18], ImageSize -> {500, 400}]); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.5651566787384663`*^9, 3.5651570931985083`*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 752},
+WindowMargins->{{38, Automatic}, {Automatic, 7}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 8422, 222, 592, "Input"],
+Cell[9004, 246, 5060, 109, 499, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
